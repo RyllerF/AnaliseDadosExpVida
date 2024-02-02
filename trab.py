@@ -54,3 +54,20 @@ plt.title("Expectativa de vida Masculina America do Sul")
 plt.xticks(rotation=90, ha="right")
 plt.savefig("ExpectativaMascPais.png")
 plt.show()
+
+
+#print(filtro_americadosul_2021)
+
+
+tipos = ['Female Life Min', 'Female Life Max', 'Male Life Min', 'Male Life Max']
+df = pd.read_csv('brasil_min_max.csv')  
+filtro_am = df.loc[(df['Type'].isin(tipos))]
+
+plt.bar(filtro_am['Type'], filtro_am['Expectancy'],)
+plt.xlabel("Categoria")
+plt.ylabel("Expectativa")
+plt.title("Expectativa de vida Minima e Maxima Brasil (1950-2021)")
+plt.xticks(rotation=90, ha="right")
+plt.savefig("ExpectativaMinMaxBR.png")
+plt.show()
+
